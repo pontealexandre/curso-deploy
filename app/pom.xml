@@ -31,7 +31,6 @@
     </plugins>
     </build>
 
-
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
