@@ -42,33 +42,53 @@ body {
 	color: red;
 	margin-left: 10px;
 }
+
+#footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: gray;
+	color: white;
+	text-align: center;
+	font-size: 12px
+}
+
+#footer-content {
+	vertical-align: middle;
+	line-height: 10px
+}
 </style>
 </h:head>
-    <h:body>
-        <f:loadBundle basename="app" var="properties" />
-        <div id="content">
-            <h2 id="titulo">#{helloWorld.greetings()}
-                #{properties.ambiente}</h2>
+<h:body>
+    <f:loadBundle basename="app" var="properties" />
+    <div id="content">
+        <h2 id="titulo">#{helloWorld.greetings()}
+            #{properties.ambiente}</h2>
 
-            <h:form id="formulario">
-                <h:panelGrid columns="4" cellpadding="5">
-                    <h:outputLabel styleClass="bold" for="nome"
-                        value="Nome:" />
-                    <p:inputText id="nome" value="#{helloWorld.name}" />
-                    <p:commandButton value="Processar"
-                        update="nome-invertido" icon="pi pi-check" />
-                    <p:commandButton value="Limpar"
-                        action="#{helloWorld.clean()}"
-                        update="nome nome-invertido" icon="pi pi-times"
-                        style="background: red; border: 1px solid red" />
-                </h:panelGrid>
-                <div id="resultado">
-                    <h:outputLabel for="nome-invertido"
-                        value="Seu nome invertido é:" />
-                    <h:outputText id="nome-invertido"
-                        value="#{helloWorld.nameReversed}" />
-                </div>
-            </h:form>
-        </div>
-    </h:body>
+        <h:form id="formulario">
+            <h:panelGrid columns="4" cellpadding="5">
+                <h:outputLabel styleClass="bold" for="nome"
+                    value="Nome:" />
+                <p:inputText id="nome" value="#{helloWorld.name}" />
+                <p:commandButton value="Processar"
+                    update="nome-invertido" icon="pi pi-check" />
+                <p:commandButton value="Limpar"
+                    action="#{helloWorld.clean()}"
+                    update="nome nome-invertido" icon="pi pi-times"
+                    style="background: red; border: 1px solid red" />
+            </h:panelGrid>
+            <div id="resultado">
+                <h:outputLabel for="nome-invertido"
+                    value="Seu nome invertido é:" />
+                <h:outputText id="nome-invertido"
+                    value="#{helloWorld.nameReversed}" />
+            </div>
+        </h:form>
+    </div>
+
+    <div id="footer">
+        <p id="footer-content">#{properties.versao} | &#169; ESMPU</p>
+    </div>
+</h:body>
 </html>
